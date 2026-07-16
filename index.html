@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title> Lost in The Forest</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>🌲 Lost in The Forest 🌲</h1>
+<div id="sub">Stage tanpa batas! Temukan jalan keluar di tiap stage, hindari boss setiap 5 stage, sambil membasmi makhluk aneh yang berkeliaran...</div>
+
+<div id="gameWrap">
+  <canvas id="game" width="900" height="600"></canvas>
+  <canvas id="minimap" width="150" height="110"></canvas>
+  <div id="hud">
+    <div>
+      <div>❤️ Nyawa</div>
+      <div id="healthBarBg"><div id="healthBar"></div></div>
+      <div id="stageRow">🏔️ Stage <span id="stage">1</span> &nbsp;·&nbsp; <span id="biome">Hutan</span></div>
+    </div>
+    <div style="text-align:right">
+      <div>👹 Terbasmi: <span id="score">0</span></div>
+      <div>🕒 <span id="timer">00:00</span></div>
+      <div>👺 Sisa: <span id="remaining">0</span></div>
+    </div>
+  </div>
+
+  <div id="bossBar">
+    <div id="bossName">👹 BOSS</div>
+    <div id="bossBarBg"><div id="bossBarFill"></div></div>
+  </div>
+
+  <button id="pauseBtn">⏸️</button>
+
+  <div id="touchControls">
+    <div id="joystickZone"><div id="joystickKnob"></div></div>
+    <button id="attackBtnTouch">⚔️</button>
+  </div>
+
+  <div id="pauseOverlay">
+    <h2>⏸️ Jeda</h2>
+    <div id="pauseButtons">
+      <button id="resumeBtn">▶️ Lanjutkan</button>
+      <button id="exitBtn">🚪 Keluar</button>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <h2 id="overlayTitle"></h2>
+    <p id="overlayText"></p>
+    <button id="restartBtn">Main Lagi</button>
+  </div>
+
+  <div id="menuOverlay">
+    <h2>🌲 Pilih Level 🌲</h2>
+    <p>Level menentukan jumlah &amp; kecepatan makhluk, serta nyawa dan damage yang kamu terima.</p>
+    <div id="levelButtons">
+      <button class="levelBtn" data-level="easy">🟢 Mudah</button>
+      <button class="levelBtn" data-level="medium">🟡 Sedang</button>
+      <button class="levelBtn" data-level="hard">🔴 Sulit</button>
+    </div>
+    <button id="continueBtn"><span id="continueInfo">Lanjutkan</span></button>
+  </div>
+
+  <div id="logoRow">
+    <img src="../img/logo1.jpeg" alt="logo 1">
+    <img src="../img/logo2.jpeg" alt="logo 2">
+  </div>
+</div>
+<div id="controls">
+  <span class="desktopOnly">Gerak: W A S D / Panah &nbsp;|&nbsp; Serang: SPASI</span>
+  <span class="touchOnly">Gerak: geser joystick kiri &nbsp;|&nbsp; Serang: tombol ⚔️ kanan</span>
+  &nbsp;|&nbsp; Peta kecil membantu arah ke jalan keluar (titik hijau)
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

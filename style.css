@@ -151,7 +151,7 @@ canvas#minimap {
 }
 
 #overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   display: none;
   flex-direction: column;
@@ -161,7 +161,8 @@ canvas#minimap {
   background: rgba(0, 0, 0, 0.82);
   color: #e8f0d8;
   padding: 20px;
-  z-index: 20;
+  z-index: 50;
+  overflow-y: auto;
 }
 
 #overlay h2 {
@@ -220,7 +221,7 @@ button:hover {
 }
 
 #pauseOverlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   display: none;
   flex-direction: column;
@@ -230,7 +231,8 @@ button:hover {
   background: rgba(0, 0, 0, 0.82);
   color: #e8f0d8;
   padding: 20px;
-  z-index: 25;
+  z-index: 50;
+  overflow-y: auto;
 }
 
 #pauseOverlay h2 {
@@ -262,7 +264,7 @@ button:hover {
 }
 
 #menuOverlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   display: flex;
   flex-direction: column;
@@ -272,7 +274,13 @@ button:hover {
   background: rgba(0, 0, 0, 0.88);
   color: #e8f0d8;
   padding: 20px;
-  z-index: 30;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+#menuOverlay #logoRow {
+  position: static;
+  margin-bottom: 16px;
 }
 
 #menuOverlay h2 {
@@ -323,13 +331,10 @@ button:hover {
 }
 
 #logoRow {
-  position: absolute;
-  right: 12px;
-  bottom: 112px;
   display: flex;
   flex-direction: row;
-  gap: 6px;
-  z-index: 10;
+  gap: 8px;
+  justify-content: center;
 }
 
 #logoRow img {
@@ -439,16 +444,11 @@ button:hover {
   }
 
   /* On phones the canvas is letterboxed quite short (fixed aspect-ratio),
-     so menus confined to #gameWrap end up cramped/overlapping. Pop them
-     out to cover the full viewport instead. */
+     so menu text/buttons get extra breathing room and stack vertically. */
   #menuOverlay,
   #pauseOverlay,
   #overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
     padding: 24px 16px;
-    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -494,9 +494,6 @@ button:hover {
   }
   #controls {
     font-size: 11px;
-  }
-  #logoRow {
-    bottom: 100px;
   }
   #logoRow img {
     width: 26px;

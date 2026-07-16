@@ -486,10 +486,6 @@ button:hover {
   #continueBtn {
     margin-top: 12px;
   }
-
-  #logoRow {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {

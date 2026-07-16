@@ -472,6 +472,39 @@ button:hover {
   #logoRow {
     display: none;
   }
+
+  /* --- Fix: HUD score/timer block was hidden behind the round pause
+     button (both sit in the top-right corner). Push it down clear
+     of the button on phones. --- */
+  #hud {
+    right: 8px;
+    left: 8px;
+  }
+  #hud > div:last-child {
+    margin-top: 38px;
+  }
+
+  /* --- Fix: minimap (bottom-right) was overlapping the ⚔️ attack
+     button (also bottom-right), making both unreadable/hard to tap.
+     Move the minimap to the top-right, below the HUD, and shrink it
+     slightly so it clears both the HUD text and the boss bar. --- */
+  #minimap {
+    top: 76px;
+    right: 8px;
+    bottom: auto;
+    width: 92px;
+    height: 68px;
+  }
+
+  /* Attack button and joystick keep the bottom corners to themselves now */
+  #attackBtnTouch {
+    right: 18px;
+    bottom: 24px;
+  }
+  #joystickZone {
+    left: 16px;
+    bottom: 20px;
+  }
 }
 
 @media (max-width: 480px) {

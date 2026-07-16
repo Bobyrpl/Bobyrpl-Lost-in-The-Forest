@@ -341,26 +341,28 @@ button:hover {
   object-fit: cover;
 }
 
-/* --- Touch controls --- */
+/* --- Touch controls (standalone bar BELOW the game box, not overlapping canvas) --- */
 #touchControls {
-  position: absolute;
-  inset: 0;
   display: none;
-  pointer-events: none;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 14px 22px;
   z-index: 10;
 }
 
 #joystickZone {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
+  position: relative;
   width: 110px;
   height: 110px;
   border-radius: 50%;
   background: rgba(200, 230, 180, 0.12);
   border: 2px solid rgba(200, 230, 180, 0.35);
-  pointer-events: auto;
   touch-action: none;
+  flex-shrink: 0;
 }
 
 #joystickKnob {
@@ -379,19 +381,17 @@ button:hover {
 }
 
 #attackBtnTouch {
-  position: absolute;
-  right: 24px;
-  bottom: 30px;
+  position: relative;
   width: 74px;
   height: 74px;
   border-radius: 50%;
   background: rgba(200, 60, 60, 0.55);
   border: 2px solid rgba(255, 180, 180, 0.7);
   font-size: 26px;
-  pointer-events: auto;
   touch-action: none;
   box-shadow: none;
   color: #fff;
+  flex-shrink: 0;
 }
 
 #attackBtnTouch:active {
@@ -408,7 +408,25 @@ button:hover {
 /* Show touch controls on touch-capable devices (Android/mobile) */
 @media (hover: none) and (pointer: coarse) {
   #touchControls {
-    display: block;
+    display: flex;
+    background: rgba(20, 30, 14, 0.55);
+    border: 2px solid #2c3d1f;
+    border-radius: 14px;
+  }
+  #joystickZone {
+    width: 125px;
+    height: 125px;
+  }
+  #joystickKnob {
+    width: 52px;
+    height: 52px;
+    margin-left: -26px;
+    margin-top: -26px;
+  }
+  #attackBtnTouch {
+    width: 86px;
+    height: 86px;
+    font-size: 30px;
   }
   .touchOnly {
     display: inline;
@@ -471,39 +489,6 @@ button:hover {
 
   #logoRow {
     display: none;
-  }
-
-  /* --- Fix: HUD score/timer block was hidden behind the round pause
-     button (both sit in the top-right corner). Push it down clear
-     of the button on phones. --- */
-  #hud {
-    right: 8px;
-    left: 8px;
-  }
-  #hud > div:last-child {
-    margin-top: 38px;
-  }
-
-  /* --- Fix: minimap (bottom-right) was overlapping the ⚔️ attack
-     button (also bottom-right), making both unreadable/hard to tap.
-     Move the minimap to the top-right, below the HUD, and shrink it
-     slightly so it clears both the HUD text and the boss bar. --- */
-  #minimap {
-    top: 76px;
-    right: 8px;
-    bottom: auto;
-    width: 92px;
-    height: 68px;
-  }
-
-  /* Attack button and joystick keep the bottom corners to themselves now */
-  #attackBtnTouch {
-    right: 18px;
-    bottom: 24px;
-  }
-  #joystickZone {
-    left: 16px;
-    bottom: 20px;
   }
 }
 
